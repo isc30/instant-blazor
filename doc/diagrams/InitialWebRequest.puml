@@ -1,6 +1,6 @@
 @startuml
 
-title: Initial Web Request
+title Initial Web Request
 
 skinparam componentStyle uml2
 autonumber "<b>[0]"
@@ -15,7 +15,7 @@ Host -> SSR : Call `Html.RenderComponent<App>()`
 activate SSR
 SSR -> Host : Return HTML
 deactivate SSR
-Host -> Browser : Send HTML + Loader
+Host -> Browser : Respond with HTML + Loader
 deactivate Host
 
 @enduml

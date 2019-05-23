@@ -28,7 +28,7 @@ package "Browser" as FrontEnd {
 Host .> Html : Web Response
 Loader <-- Html
 
-Loader ..> BlazorServer : Load
+Loader ..> BlazorServer
 BlazorServer <.[#blue].> BlazorComponents : <color blue>WebSockets</color>
 
 @enduml

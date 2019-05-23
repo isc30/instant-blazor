@@ -10,17 +10,13 @@ package "Front-End" as FrontEnd {
     component "ServerSide Blazor" as BlazorServer
 }
 
-cloud "WebSockets" as WebSockets
-
 package "Blazor" as Blazor {
     component "Blazor Components" as BlazorComponents
     component "Application State" as AppState
 }
 
 BlazorWasm -- BlazorComponents : WebAssembly
-
-BlazorServer <..> WebSockets
-WebSockets <..> BlazorComponents
+BlazorServer <.[#blue].> BlazorComponents : <color blue>WebSockets</color>
 
 BlazorComponents <--> AppState
 

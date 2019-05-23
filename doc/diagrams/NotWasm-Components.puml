@@ -29,6 +29,6 @@ Host .> Html : Web Response
 Loader <-- Html
 
 Loader ..> BlazorServer : Load
-BlazorServer <.[#blue].> BlazorComponents : <color blue>WebSocket</color>
+BlazorServer <.[#blue].> BlazorComponents : <color blue>WebSockets</color>
 
 @enduml

@@ -6,7 +6,7 @@ skinparam componentStyle uml2
 
 package "Front-End" as FrontEnd {
     component "Blazor WASM" as BlazorWasm
-    component "Blazor ServerSide" as BlazorServer
+    component "ServerSide Blazor" as BlazorServer
 }
 
 cloud "WebSockets" as WebSockets

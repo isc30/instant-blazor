@@ -1,0 +1,18 @@
+@startuml
+
+title Loading ServerSide Blazor
+
+skinparam componentStyle uml2
+skinparam backgroundColor WhiteSmoke
+autonumber "<b>[0]"
+
+actor Browser
+control "Blazor Loader" as Loader
+entity "ServerSide Blazor" as BlazorServerSide
+
+Browser -> Loader : Execute
+Loader -> BlazorServerSide : Activate
+activate BlazorServerSide
+|||
+
+@enduml

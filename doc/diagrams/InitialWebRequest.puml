@@ -1,0 +1,23 @@
+@startuml
+
+title: Initial Web Request
+
+skinparam componentStyle uml2
+skinparam backgroundColor WhiteSmoke
+skinparam BoxPadding 100
+autonumber "<b>[0]"
+
+actor Browser
+boundary "WebHost" as Host
+entity "ServerSide Rendering" as SSR
+
+Browser -> Host : Perform Web Request
+activate Host
+Host -> SSR : Call `Html.RenderComponent<App>()`
+activate SSR
+SSR -> Host : Return HTML
+deactivate SSR
+Host -> Browser : Send HTML + Loader
+deactivate Host
+
+@enduml

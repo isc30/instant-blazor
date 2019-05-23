@@ -10,7 +10,7 @@ package "Front-End" as FrontEnd {
     component "ServerSide Blazor" as BlazorServer
 }
 
-package "Blazor" as Blazor {
+cloud "Blazor" as Blazor {
     component "Blazor Components" as BlazorComponents
     component "Application State" as AppState
 }

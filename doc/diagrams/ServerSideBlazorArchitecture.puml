@@ -1,0 +1,22 @@
+@startuml
+
+title ServerSide Blazor
+
+skinparam componentStyle uml2
+left to right direction
+
+package "Browser" as Browser {
+    component "ServerSide Blazor" as BlazorServer
+}
+
+package "Server" as Server {
+    cloud "Blazor" as Blazor {
+        component "Blazor Components" as BlazorComponents
+        component "Application State" as AppState
+    }
+}
+
+BlazorServer <.[#blue].> BlazorComponents : <color blue>WebSockets</color>
+BlazorComponents <--> AppState
+
+@enduml

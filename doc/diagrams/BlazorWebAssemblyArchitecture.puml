@@ -1,0 +1,20 @@
+@startuml
+
+title Blazor WebAssembly
+
+skinparam componentStyle uml2
+left to right direction
+
+package "Browser" as Browser {
+    component "Blazor WASM" as BlazorWasm
+    
+    cloud "Blazor" as Blazor {
+        component "Blazor Components" as BlazorComponents
+        component "Application State" as AppState
+    }
+}
+
+BlazorWasm <..> BlazorComponents : WebAssembly Module
+BlazorComponents <--> AppState
+
+@enduml

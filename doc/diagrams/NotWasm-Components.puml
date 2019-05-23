@@ -7,7 +7,7 @@ left to right direction
 
 package "Server" {
 
-    package "Blazor" {
+    cloud "Blazor" {
         component "Blazor Components" as BlazorComponents
     }
 
@@ -17,12 +17,10 @@ package "Server" {
 
 }
 
-package "Browser" as FrontEnd {
-
+package "Browser" {
     component "HTML Page" as Html
     component "Blazor Loader\n(JavaScript)" as Loader
     component "ServerSide Blazor" as BlazorServer
-
 }
 
 Host .> Html : Web Response

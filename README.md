@@ -1,5 +1,10 @@
 Instantaneous Blazor Applications
 
+> This repository is a Work In Progress
+
+- [ ] Architecture Diagrams
+- [ ] Implementation
+
 # Architecture
 
 - ## Hybrid Blazor

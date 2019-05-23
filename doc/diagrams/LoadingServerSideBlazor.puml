@@ -3,7 +3,6 @@
 title Loading ServerSide Blazor
 
 skinparam componentStyle uml2
-skinparam backgroundColor WhiteSmoke
 autonumber "<b>[0]"
 
 actor Browser

@@ -1,0 +1,29 @@
+@startuml
+
+title Hybrid Blazor Architecture
+
+left to right direction
+
+skinparam componentStyle uml2
+skinparam backgroundColor WhiteSmoke
+
+package "Front-End" as FrontEnd {
+    component "Blazor WASM" as BlazorWasm
+    component "Blazor ServerSide" as BlazorServer
+}
+
+cloud "WebSockets" as WebSockets
+
+package "Blazor" as Blazor {
+    component "Blazor Components" as BlazorComponents
+    component "Application State" as AppState
+}
+
+BlazorWasm -- BlazorComponents : WebAssembly
+
+BlazorServer <..> WebSockets
+WebSockets <..> BlazorComponents
+
+BlazorComponents <--> AppState
+
+@enduml

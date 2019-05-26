@@ -1,0 +1,33 @@
+@startuml
+
+title Dual Mode Loader
+
+skinparam componentStyle uml2
+
+participant Loader
+participant "ServerSide Blazor" as BlazorServerSide
+participant "Blazor WebAssembly" as BlazorWasm
+
+Loader --> BlazorWasm : Start Download in the background
+Loader -> BlazorServerSide : Use BlazorServerSide
+activate BlazorServerSide
+
+|||
+...After some time... ...
+|||
+
+BlazorWasm --> Loader : Inform about WASM ready
+Loader -> BlazorServerSide : Request AppState
+BlazorServerSide -> Loader : Return AppState
+Loader -> BlazorServerSide : Kill BlazorServerSide
+deactivate BlazorServerSide
+
+Loader -> BlazorWasm : Use Blazor WASM
+activate BlazorWasm
+BlazorWasm -> Loader : Request AppState
+Loader -> BlazorWasm : Send AppState
+
+BlazorWasm -> BlazorWasm : Resume from AppState
+|||
+
+@enduml

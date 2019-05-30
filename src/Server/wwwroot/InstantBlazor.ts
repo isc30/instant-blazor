@@ -1,4 +1,12 @@
-﻿namespace InstantBlazor
+﻿interface Window
+{
+    Blazor:
+    {
+        start: () => void,
+    }
+}
+
+namespace InstantBlazor
 {
     type BlazorPlatform = "webassembly" | "server";
 
@@ -8,24 +16,38 @@
 
         if (preferWasm && isWebAssemblySupported())
         {
-            initBlazor("webassembly");
+            bootBlazor("webassembly", true);
         }
         else
         {
-            initBlazor("server");
+            bootBlazor("server", true);
         }
     }
 
-    function initBlazor(platform: BlazorPlatform): void
+    function bootBlazor(platform: BlazorPlatform, autoStart: boolean): void
     {
-        console.info(`Initiating Blazor on Platform: ${platform}`);
+        console.info(`Booting Blazor on Platform: ${platform}`);
 
         var scriptTag = document.createElement("script");
 
-        scriptTag.src = `_framework/blazor.${platform}.js`;
-        scriptTag.async = true;
+        scriptTag.setAttribute("src", `_framework/blazor.${platform}.js`);
+        scriptTag.setAttribute("async", "true");
+        scriptTag.setAttribute("autostart", "false");
+
+        if (autoStart)
+        {
+            scriptTag.onload = () =>
+            {
+                startBlazor();
+            }
+        }
 
         document.head.appendChild(scriptTag);
+    }
+
+    function startBlazor(): void
+    {
+        window.Blazor.start();
     }
 
     function isWebAssemblySupported(): boolean

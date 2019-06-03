@@ -2,7 +2,7 @@
 {
     Blazor:
     {
-        start: () => void,
+        start: (params: object) => void,
     }
 }
 

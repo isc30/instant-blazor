@@ -15,7 +15,8 @@
 <body>
     <app>@(await Html.RenderComponentAsync<App>())</app>
 
-    <script src="~/InstantBlazor.js"></script>
-    <script>InstantBlazor.init()</script>
+    <script type="text/javascript" src="~/blazor.polyfill.min.js"></script>
+    <script type="text/javascript" src="~/InstantBlazor.js"></script>
+    <script type="text/javascript">InstantBlazor.init()</script>
 </body>
 </html>
